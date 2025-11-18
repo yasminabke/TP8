@@ -52,27 +52,27 @@ public class PartieMonoJoueur {
 	 * @return Le score du joueur
 	 */
 	public int score() {
-		 List<Integer> tousLesLancers = getTousLesLancers();
+		List<Integer> lancers = getTousLancers();
         int score = 0;
         int indexLancer = 0;
 
-        for (int frame = 0; frame < 10 && indexLancer < tousLesLancers.size(); frame++) {
-            int premier = tousLesLancers.get(indexLancer);
+        for (int frame = 0; frame < 10 && indexLancer < lancers.size(); frame++) {
+            int premier = lancers.get(indexLancer);
 
             // STRIKE
             if (premier == 10) {
-                score += 10 + getLancerSuivant(tousLesLancers, indexLancer + 1) 
-                             + getLancerSuivant(tousLesLancers, indexLancer + 2);
+                score += 10 + getLancerSuivant(lancers, indexLancer + 1) 
+                             + getLancerSuivant(lancers, indexLancer + 2);
                 indexLancer += 1;
             }
             // SPARE
-            else if (premier + getLancerSuivant(tousLesLancers, indexLancer + 1) == 10) {
-                score += 10 + getLancerSuivant(tousLesLancers, indexLancer + 2);
+            else if (premier + getLancerSuivant(lancers, indexLancer + 1) == 10) {
+                score += 10 + getLancerSuivant(lancers, indexLancer + 2);
                 indexLancer += 2;
             }
             // CAS NORMAL
             else {
-                score += premier + getLancerSuivant(tousLesLancers, indexLancer + 1);
+                score += premier + getLancerSuivant(lancers, indexLancer + 1);
                 indexLancer += 2;
             }
         }
@@ -80,18 +80,18 @@ public class PartieMonoJoueur {
         return score;
 	}
 
-	private int getLancerSuivant(List<Integer> lancers, int index) {
-        return (index < lancers.size()) ? lancers.get(index) : 0;
+	private int getLancerSuivant(List<Integer> lancers, int i) {
+        return (i < lancers.size()) ? lancers.get(i) : 0;
     }
 
-    private List<Integer> getTousLesLancers() {
-        List<Integer> all = new ArrayList<>();
+    private List<Integer> getTousLancers() {
+        List<Integer> lancers = new ArrayList<>();
         for (TourJoueur t : tours) {
             for (LancerJoueur l : t.getLancers()) {
-                all.add(l.getNombreQuille());
+                lancers.add(l.getNbQuille());
             }
         }
-        return all;
+        return lancers;
     }
 
 

@@ -14,14 +14,14 @@ public class TourJoueur {
     public boolean enregistrerLancer(LancerJoueur lancer) {
         lancers.add(lancer);
         if (numero < 10) {
-            if (lancers.size() == 1 && lancer.getNombreQuille() == 10) {
+            if (lancers.size() == 1 && lancer.getNbQuille() == 10) {
                 return false; // Strike
             } else if (lancers.size() == 2) {
                 return false; // Deux lancers effectués
             }
         } else { // 10ème tour
             if (lancers.size() == 2) {
-                int total = lancers.get(0).getNombreQuille() + lancers.get(1).getNombreQuille();
+                int total = lancers.get(0).getNbQuille() + lancers.get(1).getNbQuille();
                 if (total < 10) {
                     return false; // Pas de lancer supplémentaire
                 }
@@ -33,11 +33,11 @@ public class TourJoueur {
     }
 
     public boolean estStrike() {
-        return lancers.size() >= 1 && lancers.get(0).getNombreQuille() == 10;
+        return lancers.size() >= 1 && lancers.get(0).getNbQuille() == 10;
     }
 
     public boolean estSpare() {
-        return lancers.size() >= 2 && (lancers.get(0).getNombreQuille() + lancers.get(1).getNombreQuille() == 10)
+        return lancers.size() >= 2 && (lancers.get(0).getNbQuille() + lancers.get(1).getNbQuille() == 10)
                && !estStrike();
     }
 
@@ -48,7 +48,7 @@ public class TourJoueur {
             if (lancers.size() < 2) {
                 return false;
             } else if (lancers.size() == 2) {
-                int total = lancers.get(0).getNombreQuille() + lancers.get(1).getNombreQuille();
+                int total = lancers.get(0).getNbQuille() + lancers.get(1).getNbQuille();
                 return total < 10;
             } else {
                 return true; // Trois lancers effectués
