@@ -135,7 +135,7 @@
 											"top": 158,
 											"width": 340.99951171875,
 											"height": 13,
-											"text": "+tours: List<TourJoueur>",
+											"text": "+tours: TourJoueur[*]",
 											"horizontalAlignment": 0
 										},
 										{
@@ -485,7 +485,7 @@
 											"top": 501,
 											"width": 203.7060546875,
 											"height": 13,
-											"text": "+lancers: List<LancerJoueur>",
+											"text": "+lancers: LancerJoueur[*]",
 											"horizontalAlignment": 0
 										}
 									],
@@ -536,7 +536,7 @@
 											"top": 539,
 											"width": 203.7060546875,
 											"height": 13,
-											"text": "+getLancers(): List<LancerJoueur>",
+											"text": "+getLancers(): LancerJoueur[*]",
 											"horizontalAlignment": 0
 										},
 										{
@@ -1500,7 +1500,10 @@
 								"$ref": "AAAAAAGalwf/1wqtsPU="
 							},
 							"name": "tours",
-							"type": "List<TourJoueur>"
+							"type": {
+								"$ref": "AAAAAAGalwuKDwsXxyE="
+							},
+							"multiplicity": "*"
 						},
 						{
 							"_type": "UMLAttribute",
@@ -1705,7 +1708,10 @@
 								"$ref": "AAAAAAGalwuKDwsXxyE="
 							},
 							"name": "lancers",
-							"type": "List<LancerJoueur>"
+							"type": {
+								"$ref": "AAAAAAGalw4xnwuD6i0="
+							},
+							"multiplicity": "*"
 						}
 					],
 					"operations": [
@@ -1731,7 +1737,10 @@
 									"_parent": {
 										"$ref": "AAAAAAGalxqkDhWXoqY="
 									},
-									"type": "List<LancerJoueur>",
+									"type": {
+										"$ref": "AAAAAAGalw4xnwuD6i0="
+									},
+									"multiplicity": "*",
 									"direction": "return"
 								}
 							]
